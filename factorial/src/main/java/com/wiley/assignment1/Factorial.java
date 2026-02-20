@@ -33,11 +33,25 @@ public class Factorial {
 		- All code should be inside the placeholders below.
 		*/
 
-		//YOUR CODE STARTS HERE
+		 //YOUR CODE STARTS HERE
 
-		return -1;
+		 // Setting up scanner
+		 scanner = new Scanner(System.in);
 
-		//YOUR CODE ENDS HERE
+		 // Try catch blocks to attempt parsing the input from the user,
+		 // and if the input is not a number then exception is caught and -1 is returned after
+		 try {
+			 num = scanner.nextInt(); // Take input from user
+			 return num; // Return valid input
+		 } catch(Exception e) {
+			 // Since exception was caught, type out the error message
+			 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
+		 }
+
+		 // Only case where code reaches here is when the input is invalid, so return -1
+		 return -1;
+
+		 //YOUR CODE ENDS HERE
 		 
 			
 	 }
@@ -50,14 +64,22 @@ public class Factorial {
 		  
 		  - All code should be inside the placeholders below.
 		*/
-		 
-		int result = 1;
-		//YOUR CODE STARTS HERE
 
- 
+		 int result = 1;
+		 //YOUR CODE STARTS HERE
 
-		//YOUR CODE ENDS HERE
-		this.printStream.print("The Factorial is: " + result);		
+		 // Use a loop
+		 while (num > 0) {
+			 // Multiply result by the number before decrementing it
+			 result = num * result;
+			 // Decrement the number since we want to multiply by the next number below
+			 // for the next iteration
+			 num--;
+		 }
+
+
+		 //YOUR CODE ENDS HERE
+		 this.printStream.print("The Factorial is: " + result);
 		
 	 }
 	 
