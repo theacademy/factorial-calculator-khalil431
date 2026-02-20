@@ -2,6 +2,7 @@ package com.wiley.assignment1;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -33,11 +34,24 @@ public class Factorial {
 		- All code should be inside the placeholders below.
 		*/
 
-		//YOUR CODE STARTS HERE
+		 //YOUR CODE STARTS HERE
 
-		return -1;
+		 // Try catch blocks to attempt parsing the input from the user,
+		 // and if the input is not a number then exception is caught and -1 is returned after
+		 try {
+			 num = scanner.nextInt(); // Take input from user
+			 if (num >= 1 && num <= 10) return num; // Return valid input between 1 and 10
+		 } catch(InputMismatchException e) {
+			 // Exception is caught here and code continues
+		 }
 
-		//YOUR CODE ENDS HERE
+		 // Only case where code reaches here is when the input is invalid
+		 // or not between 1 and 10 inclusive,
+		 // so print error message and return -1
+		 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
+		 return -1;
+
+		 //YOUR CODE ENDS HERE
 		 
 			
 	 }
@@ -50,14 +64,22 @@ public class Factorial {
 		  
 		  - All code should be inside the placeholders below.
 		*/
-		 
-		int result = 1;
-		//YOUR CODE STARTS HERE
 
- 
+		 int result = 1;
+		 //YOUR CODE STARTS HERE
 
-		//YOUR CODE ENDS HERE
-		this.printStream.print("The Factorial is: " + result);		
+		 // Use a loop
+		 while (num > 0) {
+			 // Multiply result by the number before decrementing it
+			 result = num * result;
+			 // Decrement the number since we want to multiply by the next number below
+			 // for the next iteration
+			 num--;
+		 }
+
+
+		 //YOUR CODE ENDS HERE
+		 this.printStream.print("The Factorial is: " + result);
 		
 	 }
 	 
