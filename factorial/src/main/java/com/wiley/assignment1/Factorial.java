@@ -2,6 +2,7 @@ package com.wiley.assignment1;
 
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -35,20 +36,19 @@ public class Factorial {
 
 		 //YOUR CODE STARTS HERE
 
-		 // Setting up scanner
-		 scanner = new Scanner(System.in);
-
 		 // Try catch blocks to attempt parsing the input from the user,
 		 // and if the input is not a number then exception is caught and -1 is returned after
 		 try {
 			 num = scanner.nextInt(); // Take input from user
-			 return num; // Return valid input
-		 } catch(Exception e) {
-			 // Since exception was caught, type out the error message
-			 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
+			 if (num >= 1 && num <= 10) return num; // Return valid input between 1 and 10
+		 } catch(InputMismatchException e) {
+			 // Exception is caught here and code continues
 		 }
 
-		 // Only case where code reaches here is when the input is invalid, so return -1
+		 // Only case where code reaches here is when the input is invalid
+		 // or not between 1 and 10 inclusive,
+		 // so print error message and return -1
+		 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
 		 return -1;
 
 		 //YOUR CODE ENDS HERE
